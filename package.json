@@ -1,0 +1,30 @@
+{
+    "name": "gulp-copy",
+    "version": "0.0.1",
+    "description": "Plugin copying files to a new destination and using that destionation for other actions",
+    "main": "index.js",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/klaascuvelier/gulp-copy"
+    },
+    "keywords": [
+        "gulpplugin", "copy"
+    ],
+    "author": {
+        "name": "Klaas Cuvelier",
+        "email": "cuvelierklaas@gmail.com",
+        "url": "http://klaascuvelier.be"
+    },
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/klaascuvelier/gulp-copy/issues"
+    },
+    "devDependencies": {
+        "jshint": "~2.4.1"
+    },
+    "dependencies": {
+        "gulp-util": "~2.2.9",
+        "through": "2.3.4"
+    },
+    "homepage": "https://github.com/klaascuvelier/gulp-copy"
+}
