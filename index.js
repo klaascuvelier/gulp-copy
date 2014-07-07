@@ -27,9 +27,18 @@ module.exports = function(destination, opts) {
                 rel = rel.substring(rel.indexOf('/') + 1);
             }
         }
+        
+        // Make sure destination exists
+         if (!fs.existsSync(fileDestination)) {
+             createDestination(fileDestination.substr(0, fileDestination.lastIndexOf('/')));
+         }
 
         // Copy the file
-        copyFile(file.path, fileDestination, function () {
+        copyFile(file.path, fileDestination, function (error) {
+            if (error) {
+                throw new PluginError('gulp-copy', 'Could not copy file <' +  file.path + '>: ' + error.message);
+            }
+            
             // Update path for file so this path is used later on
             file.path = fileDestination;
             self.emit('data', file); 
@@ -39,6 +48,26 @@ module.exports = function(destination, opts) {
     function streamEnd()
     {
         this.emit('end');
+    }
+    
+    function createDestination(destination)
+    {
+        var folders = destination.split('/'),
+            path = [],
+            l = folders.length,
+            i = 0;
+
+        for (; i < l; i++) {
+            path.push(folders[i]);
+
+            if (!fs.existsSync(path.join('/'))) {
+                try {
+                    fs.mkdirSync(path.join('/'));
+                } catch (error) {
+                    throw new PluginError('gulp-copy', 'Could not create destination <' +  destination + '>: ' + error.message);
+                }
+            }
+        }
     }
 
     function copyFile(source, target, cb) 
