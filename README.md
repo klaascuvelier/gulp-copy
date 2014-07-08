@@ -10,8 +10,8 @@ Automatically creates needed folders before proceeding. Ability to remove 'prefi
       .pipe($.copy(outputPath, options));
       
 ### Options
-
-prefix: integer, defining how many parts of the path (separated by /) should be ignored as they are prefixes
+  
+    prefix: integer, defining how many parts of the path (separated by /) should be ignored as they are prefixes
 
 
 ## Releases
