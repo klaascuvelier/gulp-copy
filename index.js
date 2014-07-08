@@ -17,8 +17,8 @@ module.exports = function(destination, opts) {
         if (file.isStream()) return this.emit('error', new PluginError('gulp-copy', 'Streaming not supported'));
 
         var rel = path.relative(file.cwd, file.path).replace(/\\/g, '/'),
-            fileDestination = destination + '/' + rel,
-            self = this;
+            self = this,
+            fileDestination;
 
         // Strip path prefixes
         if(opts.prefix) {
@@ -27,6 +27,8 @@ module.exports = function(destination, opts) {
                 rel = rel.substring(rel.indexOf('/') + 1);
             }
         }
+        
+        fileDestination = destination + '/' + rel;
         
         // Make sure destination exists
          if (!fs.existsSync(fileDestination)) {
