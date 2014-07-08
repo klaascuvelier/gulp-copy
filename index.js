@@ -16,7 +16,9 @@ module.exports = function(destination, opts) {
         if (file.isNull()) return; // ignore
         if (file.isStream()) return this.emit('error', new PluginError('gulp-copy', 'Streaming not supported'));
 
-        var rel = path.relative(file.cwd, file.path).replace(/\\/g, '/');
+        var rel = path.relative(file.cwd, file.path).replace(/\\/g, '/'),
+            self = this,
+            fileDestination;
 
         // Strip path prefixes
         if(opts.prefix) {
@@ -25,28 +27,31 @@ module.exports = function(destination, opts) {
                 rel = rel.substring(rel.indexOf('/') + 1);
             }
         }
-
-        var fileDestination = destination + '/' + rel;
-
+        
+        fileDestination = destination + '/' + rel;
+        
         // Make sure destination exists
-        if (!fs.existsSync(fileDestination)) {
-            createDestination(fileDestination.substr(0, fileDestination.lastIndexOf('/')));
-        }
+         if (!fs.existsSync(fileDestination)) {
+             createDestination(fileDestination.substr(0, fileDestination.lastIndexOf('/')));
+         }
 
         // Copy the file
-        exec('cp ' + file.path + ' ' + fileDestination,  function (error, stdout, stderr) {});
-
-        // Update path for file so this path is used later on
-        file.path = fileDestination;
-
-        this.emit('data', file);
+        copyFile(file.path, fileDestination, function (error) {
+            if (error) {
+                throw new PluginError('gulp-copy', 'Could not copy file <' +  file.path + '>: ' + error.message);
+            }
+            
+            // Update path for file so this path is used later on
+            file.path = fileDestination;
+            self.emit('data', file); 
+        });
     }
 
     function streamEnd()
     {
         this.emit('end');
     }
-
+    
     function createDestination(destination)
     {
         var folders = destination.split('/'),
@@ -62,8 +67,39 @@ module.exports = function(destination, opts) {
                     fs.mkdirSync(path.join('/'));
                 } catch (error) {
                     throw new PluginError('gulp-copy', 'Could not create destination <' +  destination + '>: ' + error.message);
-
                 }
+            }
+        }
+    }
+
+    function copyFile(source, target, cb) 
+    {
+        var cbCalled = false,
+            rd = fs.createReadStream(source),
+            wr;
+  
+            rd.on("error", function(err) {
+                done(err);
+            });
+            
+            
+        wr = fs.createWriteStream(target);
+  
+        wr.on("error", function(err) {
+            done(err);
+        });
+  
+        wr.on("close", function(ex) {
+            done();
+        });
+  
+        rd.pipe(wr);
+
+        function done(err) 
+        {
+            if (!cbCalled) {
+                cb(err);
+                cbCalled = true;
             }
         }
     }

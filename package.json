@@ -1,6 +1,6 @@
 {
     "name": "gulp-copy",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "description": "Plugin copying files to a new destination and using that destionation for other actions",
     "main": "index.js",
     "repository": {
