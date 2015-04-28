@@ -5,7 +5,7 @@ Copy source files to new destination and use that destination as new source
 Automatically creates needed folders before proceeding. Ability to remove 'prefixes' from path>
 
 ## Usage
-    var gulpCopy = requier('gulp-copy');
+    var gulpCopy = require('gulp-copy');
 
     return gulp.src(sourceFiles)
       .pipe(gulpCopy(outputPath, options));
