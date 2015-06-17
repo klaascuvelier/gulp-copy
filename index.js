@@ -37,7 +37,7 @@ module.exports = function(destination, opts) {
         }
 
         if(opts.flatten) {
-            rel = rel.substring(lastIndexOf('/') + 1);
+            rel = rel.substring(rel.lastIndexOf('/') + 1);
         }
 
         fileDestination = destination + '/' + rel;
