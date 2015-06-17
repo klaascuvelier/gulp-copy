@@ -13,6 +13,7 @@ Automatically creates needed folders before proceeding. Ability to remove 'prefi
 ### Options
   
     prefix: integer, defining how many parts of the path (separated by /) should be ignored as they are prefixes
+           if prefix is set to -1, it will only use the filename. 
 
 
 ## Releases

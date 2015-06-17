@@ -20,16 +20,28 @@ module.exports = function(destination, opts) {
             self = this,
             fileDestination;
 
+
         // Strip path prefixes
         if(opts.prefix) {
             var p = opts.prefix;
-            while(p-- > 0) {
-                rel = rel.substring(rel.indexOf('/') + 1);
+
+            var onlyFilename = false;
+            if(p == -1) {
+                onlyFilename = true;
+            }
+
+            while(p-- > 0 || onlyFilename) {
+                var i = rel.indexOf('/') + 1;
+                if(i == 0) {
+                    break;
+                }
+
+                rel = rel.substring(i);
             }
         }
-        
+
         fileDestination = destination + '/' + rel;
-        
+
         // Make sure destination exists
          if (!fs.existsSync(fileDestination)) {
              createDestination(fileDestination.substr(0, fileDestination.lastIndexOf('/')));
@@ -40,10 +52,10 @@ module.exports = function(destination, opts) {
             if (error) {
                 throw new PluginError('gulp-copy', 'Could not copy file <' +  file.path + '>: ' + error.message);
             }
-            
+
             // Update path for file so this path is used later on
             file.path = fileDestination;
-            self.emit('data', file); 
+            self.emit('data', file);
         });
     }
 
@@ -51,7 +63,7 @@ module.exports = function(destination, opts) {
     {
         this.emit('end');
     }
-    
+
     function createDestination(destination)
     {
         var folders = destination.split('/'),
@@ -72,30 +84,30 @@ module.exports = function(destination, opts) {
         }
     }
 
-    function copyFile(source, target, cb) 
+    function copyFile(source, target, cb)
     {
         var cbCalled = false,
             rd = fs.createReadStream(source),
             wr;
-  
+
             rd.on("error", function(err) {
                 done(err);
             });
-            
-            
+
+
         wr = fs.createWriteStream(target);
-  
+
         wr.on("error", function(err) {
             done(err);
         });
-  
+
         wr.on("close", function(ex) {
             done();
         });
-  
+
         rd.pipe(wr);
 
-        function done(err) 
+        function done(err)
         {
             if (!cbCalled) {
                 cb(err);
