@@ -9,9 +9,9 @@ Automatically creates needed folders before proceeding. Ability to remove 'prefi
 
     return gulp.src(sourceFiles)
       .pipe(gulpCopy(outputPath, options));
-      
+
 ### Options
-  
+
     prefix: integer, defining how many parts of the path (separated by /) should be ignored as they are prefixes
     flatten: boolean, flattens files to one single output directory.
 
