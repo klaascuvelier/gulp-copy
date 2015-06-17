@@ -25,12 +25,8 @@ module.exports = function(destination, opts) {
         if(opts.prefix) {
             var p = opts.prefix;
 
-            var onlyFilename = false;
-            if(p == -1) {
-                onlyFilename = true;
-            }
+            while(p-- > 0) {
 
-            while(p-- > 0 || onlyFilename) {
                 var i = rel.indexOf('/') + 1;
                 if(i == 0) {
                     break;
@@ -38,6 +34,10 @@ module.exports = function(destination, opts) {
 
                 rel = rel.substring(i);
             }
+        }
+
+        if(opts.flatten) {
+            rel = rel.substring(lastIndexOf('/') + 1);
         }
 
         fileDestination = destination + '/' + rel;
