@@ -1,7 +1,6 @@
 var through     = require('through'),
     path        = require('path'),
     fs          = require('fs'),
-    exec        = require('child_process').exec,
     PluginError = require('gulp-util').PluginError;
 
 module.exports = function(destination, opts) {
