@@ -5,14 +5,16 @@ Copy source files to new destination and use that destination as new source
 Automatically creates needed folders before proceeding. Ability to remove 'prefixes' from path>
 
 ## Usage
-    var gulpCopy = require('gulp-copy');
+```js
+var gulpCopy = require('gulp-copy');
 
-    return gulp.src(sourceFiles)
-      .pipe(gulpCopy(outputPath, options));
+return gulp.src(sourceFiles)
+  .pipe(gulpCopy(outputPath, options));
+```
       
 ### Options
-  
-    prefix: integer, defining how many parts of the path (separated by /) should be ignored as they are prefixes
+######`prefix`:
+integer, defining how many parts of the path (separated by /) should be ignored as they are prefixes
 
 
 ## Releases
