@@ -53,7 +53,7 @@ module.exports = function(destination, opts) {
 
     function createDestination(destination)
     {
-        var folders = destination.split('/'),
+        var folders = destination.split('/').filter(Boolean),
             path = [],
             l = folders.length,
             i = 0;
