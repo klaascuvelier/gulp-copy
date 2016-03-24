@@ -53,7 +53,7 @@ module.exports = function(destination, opts) {
 
     function createDestination(destination)
     {
-        var folders = destination.split('/').filter(Boolean),
+        var folders = destination.split('/'),
             path = [],
             l = folders.length,
             i = 0;
@@ -61,7 +61,7 @@ module.exports = function(destination, opts) {
         for (; i < l; i++) {
             path.push(folders[i]);
 
-            if (!fs.existsSync(path.join('/'))) {
+            if (folders[i] !== "" && !fs.existsSync(path.join('/'))) {
                 try {
                     fs.mkdirSync(path.join('/'));
                 } catch (error) {
