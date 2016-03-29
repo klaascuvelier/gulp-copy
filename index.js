@@ -35,7 +35,9 @@ module.exports = function(destination, opts) {
          }
 
         // Copy the file
+        fileCount++;
         copyFile(file.path, fileDestination, function (error) {
+            fileCount--;
             if (error) {
                 throw new PluginError('gulp-copy', 'Could not copy file <' +  file.path + '>: ' + error.message);
             }
@@ -46,8 +48,13 @@ module.exports = function(destination, opts) {
         });
     }
 
+    var fileCount = 0; // FIXED ISSUE Last file gets lost https://github.com/klaascuvelier/gulp-copy/issues/3
+
     function streamEnd()
     {
+        if (fileCount >0) { // Some files may be losted when emit 'end'. 
+            return setTimeout(streamEnd.bind(this)); // Use process.nextTick is too fast
+        }
         this.emit('end');
     }
 
