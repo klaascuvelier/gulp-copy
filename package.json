@@ -7,20 +7,26 @@
         "type": "git",
         "url": "https://github.com/klaascuvelier/gulp-copy"
     },
+    "scripts": {
+        "lint": "eslint ./lib -c ./.eslintrc"
+    },
     "keywords": [
-        "gulpplugin", "copy"
+        "gulpplugin",
+        "copy",
+        "gulp"
     ],
     "author": {
         "name": "Klaas Cuvelier",
         "email": "cuvelierklaas@gmail.com",
-        "url": "http://klaascuvelier.be"
+        "url": "http://klaascuvelier.io"
     },
     "license": "MIT",
     "bugs": {
         "url": "https://github.com/klaascuvelier/gulp-copy/issues"
     },
     "devDependencies": {
-        "jshint": "~2.4.1"
+        "eslint": "^3.0.1",
+        "js-styleguide": "git://github.com/klaascuvelier/js-styleguide.git#master"
     },
     "dependencies": {
         "gulp-util": "~2.2.9",
