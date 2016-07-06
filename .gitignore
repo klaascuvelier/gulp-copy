@@ -1,3 +1,5 @@
 node_modules
 .idea
 example
+test/coverage
+test/junit

@@ -8,7 +8,8 @@
         "url": "https://github.com/klaascuvelier/gulp-copy"
     },
     "scripts": {
-        "lint": "eslint ./lib -c ./.eslintrc"
+        "lint": "eslint ./lib -c ./.eslintrc",
+        "test": "./node_modules/.bin/jasmine-node test/spec"
     },
     "keywords": [
         "gulpplugin",
@@ -26,11 +27,13 @@
     },
     "devDependencies": {
         "eslint": "^3.0.1",
+        "jasmine-node": "^1.14.5",
         "js-styleguide": "git://github.com/klaascuvelier/js-styleguide.git#master"
     },
     "dependencies": {
-        "gulp-util": "~2.2.9",
-        "through": "2.3.4"
+        "gulp": "^3.9.0",
+        "gulp-util": "^3.0.0",
+        "through2": "^2.0.0"
     },
     "homepage": "https://github.com/klaascuvelier/gulp-copy"
 }
