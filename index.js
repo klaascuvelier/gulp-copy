@@ -61,7 +61,10 @@ module.exports = function(destination, opts) {
         for (; i < l; i++) {
             path.push(folders[i]);
 
-            if (folders[i] !== "" && !fs.existsSync(path.join('/'))) {
+            if (i == 0 && folders[i] === '') {
+                path[i] = '/';
+            }
+            else if (folders[i] !== "" && !fs.existsSync(path.join('/'))) {
                 try {
                     fs.mkdirSync(path.join('/'));
                 } catch (error) {
