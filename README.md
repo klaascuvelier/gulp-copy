@@ -1,4 +1,5 @@
-[![npm version](https://badge.fury.io/js/gulp-copy.svg)](https://badge.fury.io/js/gulp-copy)
+[![npm version](https://badge.fury.io/js/gulp-copy.svg)](https://www.npmjs.com/package/gulp-copy)
+[![build status](https://circleci.com/gh/klaascuvelier/gulp-copy.svg?style=shield&circle-token=1dddfa2a1b153a5e5b7c00598a42b66842169eb2)](https://circleci.com/gh/klaascuvelier/gulp-copy/)
 
 # gulp-copy
 
