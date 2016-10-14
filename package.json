@@ -1,30 +1,39 @@
 {
     "name": "gulp-copy",
-    "version": "0.0.2",
+    "version": "1.0.0",
     "description": "Plugin copying files to a new destination and using that destination for other actions",
     "main": "index.js",
     "repository": {
         "type": "git",
         "url": "https://github.com/klaascuvelier/gulp-copy"
     },
+    "scripts": {
+        "lint": "eslint ./lib -c ./.eslintrc",
+        "test": "./node_modules/.bin/jasmine-node test/spec"
+    },
     "keywords": [
-        "gulpplugin", "copy"
+        "gulpplugin",
+        "copy",
+        "gulp"
     ],
     "author": {
         "name": "Klaas Cuvelier",
         "email": "cuvelierklaas@gmail.com",
-        "url": "http://klaascuvelier.be"
+        "url": "http://klaascuvelier.io"
     },
     "license": "MIT",
     "bugs": {
         "url": "https://github.com/klaascuvelier/gulp-copy/issues"
     },
     "devDependencies": {
-        "jshint": "~2.4.1"
+        "eslint": "^3.0.1",
+        "jasmine-node": "^1.14.5",
+        "js-styleguide": "git://github.com/klaascuvelier/js-styleguide.git#master"
     },
     "dependencies": {
-        "gulp-util": "~2.2.9",
-        "through": "2.3.4"
+        "gulp": "^3.9.0",
+        "gulp-util": "^3.0.0",
+        "through2": "^2.0.0"
     },
     "homepage": "https://github.com/klaascuvelier/gulp-copy"
 }
