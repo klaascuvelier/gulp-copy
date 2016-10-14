@@ -27,7 +27,7 @@ return gulp
 
 ### Options
 
-prefix: integer, defining how many parts of the path (separated by /) should be removed from the original path
+`prefix`: integer, defining how many parts of the path (separated by /) should be removed from the original path
 
 ## Updates
 
