@@ -1,3 +1,5 @@
+[![npm version](https://badge.fury.io/js/gulp-copy.svg)](https://badge.fury.io/js/gulp-copy)
+
 # gulp-copy
 
 Copy source files to new destination and use that destination as new source (for further piping).
