@@ -1,25 +1,28 @@
 # gulp-copy
 
-Copy source files to new destination and use that destination as new source
-
-Automatically creates needed folders before proceeding. Ability to remove 'prefixes' from path>
+Copy source files to new destination and use that destination as new source (for further piping).
+Automatically creates needed folders before proceeding. Ability to remove 'prefixes' from path.
 
 ## Usage
-    var gulpCopy = require('gulp-copy');
+```
+// gulpfile.js
 
-    return gulp.src(sourceFiles)
-      .pipe(gulpCopy(outputPath, options));
-      
+var gulpCopy = require('gulp-copy');
+var otherGulpFunction = require('gulp-other-function');
+var sourceFiles = [ 'source1/*', 'source2/*.txt' ];
+var destination = 'dest/';
+
+return gulp
+    .src(sourceFiles)
+    .pipe(gulpCopy(outputPath, options))
+    .pipe(otherGulpFunction())
+    .dest(destination);
+```
+
 ### Options
-  
-    prefix: integer, defining how many parts of the path (separated by /) should be ignored as they are prefixes
 
+prefix: integer, defining how many parts of the path (separated by /) should be removed from the original path
 
-## Releases
+## Updates
 
-### 0.0.2 Streams release
-* use nodejs streams to write files (instead of cp command)
-* fix callback issues (which probably will fix the too many open files bug)
-
-### 0.0.1 Initial release
-* initial code
+See [changelog](CHANGELOG.md) for all updates.
