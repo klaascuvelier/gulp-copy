@@ -6,6 +6,9 @@
 Copy source files to new destination and use that destination as new source (for further piping).
 Automatically creates needed folders before proceeding. Ability to remove 'prefixes' from path.
 
+Most likely you don't need this package for your gulp pipeline, a lot can be accomplished with just `gulp.dest`.
+A reason to use this package would be to keep some depth (prefix options).
+
 ## Usage
 ```
 // gulpfile.js
