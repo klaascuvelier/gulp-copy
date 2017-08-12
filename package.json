@@ -26,14 +26,14 @@
         "url": "https://github.com/klaascuvelier/gulp-copy/issues"
     },
     "devDependencies": {
-        "eslint": "^3.0.1",
+        "eslint": "^4.4.1",
         "jasmine-node": "^1.14.5",
         "js-styleguide": "git://github.com/klaascuvelier/js-styleguide.git#master"
     },
     "dependencies": {
-        "gulp": "^3.9.0",
-        "gulp-util": "^3.0.0",
-        "through2": "^2.0.0"
+        "gulp": "^3.9.1",
+        "gulp-util": "^3.0.8",
+        "through2": "^2.0.3"
     },
     "homepage": "https://github.com/klaascuvelier/gulp-copy"
 }
