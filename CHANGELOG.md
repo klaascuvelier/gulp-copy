@@ -1,4 +1,7 @@
 
+## 1.0.1
+* Fix for absolute paths
+
 ## 1.0.0
 * Require node v4
 * Require gulp 3.9.x
