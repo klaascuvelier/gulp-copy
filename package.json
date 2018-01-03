@@ -32,7 +32,7 @@
     },
     "dependencies": {
         "gulp": "^3.9.1",
-        "gulp-util": "^3.0.8",
+        "plugin-error": "^0.1.2",
         "through2": "^2.0.3"
     },
     "homepage": "https://github.com/klaascuvelier/gulp-copy"
