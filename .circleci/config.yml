@@ -5,11 +5,12 @@ jobs:
     machine: true
     steps:
       - checkout
-      - run: npm build
+      - run: npm install
   test:
     machine: true
     steps: 
       - checkout
+      - run: npm install
       - run: npm test
 
 workflows:
