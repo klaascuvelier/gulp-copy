@@ -11,7 +11,8 @@ jobs:
     steps: 
       - checkout
       - run: npm install
-      - run: npm test && npm lint
+      - run: npm run lint
+      - run: npm test
 
 workflows:
   version: 2
