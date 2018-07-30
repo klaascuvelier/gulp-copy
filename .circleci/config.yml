@@ -8,9 +8,11 @@ jobs:
       - run: npm install
   test:
     machine: true
-    steps: 
+    steps:
       - checkout
       - run: npm install
+      - run: npm lint
+      - run: npm prettier-check
       - run: npm test
 
 workflows:
