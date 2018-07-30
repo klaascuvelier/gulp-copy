@@ -11,8 +11,8 @@ jobs:
     steps:
       - checkout
       - run: npm install
-      - run: npm lint
-      - run: npm prettier-check
+      - run: npm run lint
+      - run: npm run prettier-check
       - run: npm test
 
 workflows:
