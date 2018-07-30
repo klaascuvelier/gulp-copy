@@ -1,6 +1,7 @@
 {
-  "extends": "./node_modules/js-styleguide/.eslintrc",
-  "rules": {
-    "no-magic-numbers": 0
-  }
+    "extends": "kentcdodds",
+    "rules": {
+        "no-magic-numbers": 0,
+        "valid-jsdoc": 0
+    }
 }

@@ -10,12 +10,13 @@ Most likely you don't need this package for your gulp pipeline, a lot can be acc
 A reason to use this package would be to keep some depth (prefix options).
 
 ## Usage
+
 ```js
 // gulpfile.js
 
 var gulpCopy = require('gulp-copy');
 var otherGulpFunction = require('gulp-other-function');
-var sourceFiles = [ 'source1/*', 'source2/*.txt' ];
+var sourceFiles = ['source1/*', 'source2/*.txt'];
 var destination = 'dest/';
 
 return gulp
