@@ -1,5 +1,5 @@
 {
-    "extends": "prettier-eslint",
+    "extends": "kentcdodds",
     "rules": {
         "no-magic-numbers": 0
     }
