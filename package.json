@@ -34,7 +34,7 @@
         "prettier": "^1.14.0"
     },
     "dependencies": {
-        "gulp": "^3.9.1",
+        "gulp": "^4.0.0",
         "plugin-error": "^0.1.2",
         "through2": "^2.0.3"
     },
