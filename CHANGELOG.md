@@ -1,3 +1,7 @@
+## 4.0.0
+
+-   Gulp 4 support
+
 ## 1.1.0
 
 -   Replace deprecated gulp-util, thx to @demurgos and @grig0ry
