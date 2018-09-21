@@ -18,6 +18,7 @@ var gulpCopy = require('gulp-copy');
 var otherGulpFunction = require('gulp-other-function');
 var sourceFiles = ['source1/*', 'source2/*.txt'];
 var destination = 'dest/';
+var outputPut = 'some-other-dest/';
 
 return gulp
     .src(sourceFiles)
@@ -29,6 +30,11 @@ return gulp
 ### Options
 
 `prefix`: integer, defining how many parts of the path (separated by /) should be removed from the original path
+
+### Example
+
+A simple implemention of a gulpfile using `gulp-copy` is available in the [example](./example) folder.
+You can run `gulp` or `npx gulp` from within the folder.
 
 ## Updates
 
