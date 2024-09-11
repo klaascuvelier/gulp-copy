@@ -6,7 +6,7 @@ gulp.task('default', copyFunction);
 
 function copyFunction() {
     return gulp
-        .src([' ./files/.*', './files/*.*'])
+        .src(['./files/*.*'])
         .pipe(copy('output/test', { prefix: 1 }))
         .pipe(verify());
 }

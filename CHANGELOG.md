@@ -1,3 +1,7 @@
+## 5.0.0
+
+-   Gulp 5 support
+
 ## 4.0.0
 
 -   Gulp 4 support
